@@ -4,11 +4,12 @@
 
 class Igra:
 
-    def __init__(self, prazna_polja, zasedena_polja, igralceva_polja, racunalnikova_polja):
+    def __init__(self, prazna_polja, zasedena_polja, igralceva_polja, racunalnikova_polja, na_vrsti_igralec):
         self.prazna_polja = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.zasedena_polja = []
         self.igralceva_polja = []
         self.racunalnikova_polja = []
+        self.na_vrsti_igralec = True
 
     def zaznaj_nevarnost(self):
         preprecijo_poraz = []
@@ -132,7 +133,11 @@ class Igra:
                 zmagovalna_polja.append(9)
         return zmagovalna_polja
 
-        
+
+    def ali_je_konec_igre(self):
+      
+    def izberi_polje(self, polje):
+
 
 
     
