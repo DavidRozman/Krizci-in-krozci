@@ -1,6 +1,6 @@
 
-
-
+PONOVLJENO_POLJE = 'o'
+import random
 
 class Igra:
 
@@ -134,10 +134,70 @@ class Igra:
         return zmagovalna_polja
 
 
-    def ali_je_konec_igre(self):
+    def ali_je_zmagal_racunalnik(self):
+        if 1 in self.racunalnikova_polja and 2 in self.racunalnikova_polja and 3 in self.racunalnikova_polja:
+            return True
+        elif 4 in self.racunalnikova_polja and 5 in self.racunalnikova_polja and 6 in self.racunalnikova_polja:
+            return True
+        elif 7 in self.racunalnikova_polja and 8 in self.racunalnikova_polja and 9 in self.racunalnikova_polja:
+            return True
+        elif 1 in self.racunalnikova_polja and 4 in self.racunalnikova_polja and 7 in self.racunalnikova_polja:
+            return True
+        elif 2 in self.racunalnikova_polja and 5 in self.racunalnikova_polja and 8 in self.racunalnikova_polja:
+            return True
+        elif 6 in self.racunalnikova_polja and 6 in self.racunalnikova_polja and 9 in self.racunalnikova_polja:
+            return True
+        elif 1 in self.racunalnikova_polja and 5 in self.racunalnikova_polja and 9 in self.racunalnikova_polja:
+            return True
+        elif 3 in self.racunalnikova_polja and 5 in self.racunalnikova_polja and 7 in self.racunalnikova_polja:
+            return True
+        return False
+    
+    def ali_je_zmagal_igralec(self):
+        if 1 in self.igralceva_polja and 2 in self.igralceva_polja and 3 in self.igralceva_polja:
+            return True
+        elif 4 in self.igralceva_polja and 5 in self.igralceva_polja and 6 in self.igralceva_polja:
+            return True
+        elif 7 in self.igralceva_polja and 8 in self.igralceva_polja and 9 in self.igralceva_polja:
+            return True
+        elif 1 in self.igralceva_polja and 4 in self.igralceva_polja and 7 in self.igralceva_polja:
+            return True
+        elif 2 in self.igralceva_polja and 5 in self.igralceva_polja and 8 in self.igralceva_polja:
+            return True
+        elif 6 in self.igralceva_polja and 6 in self.igralceva_polja and 9 in self.igralceva_polja:
+            return True
+        elif 1 in self.igralceva_polja and 5 in self.igralceva_polja and 9 in self.igralceva_polja:
+            return True
+        elif 3 in self.igralceva_polja and 5 in self.racunalnikova_polja and 7 in self.racunalnikova_polja:
+            return True
+        return False
+        
+    def ali_je_remi(self):
+        return not self.ali_je_zmagal_igralec() and not self.ali_je_zmagal_racunalnik and len(self.zasedena_polja) == 9
       
     def izberi_polje(self, polje):
-
+        if polje in self.zasedena_polja:
+            return PONOVLJENO_POLJE
+        self.zasedena_polja.append(polje)
+        self.prazna_polja.remove(polje)
+        self.igralceva_polja.append(polje)
+        if not self.ali_je_zmagal_igralec():
+            if len(self.zasedena_polja) != 9:
+                if len(self.zaznaj_zmago()) > 0:
+                    racunalnikovo_polje = random.choice(self.zaznaj_zmago())
+                    self.zasedena_polja.append(racunalnikovo_polje)
+                    self.prazna_polja.remove(racunalnikovo_polje)
+                    self.racunalnikova_polja.append(racunalnikovo_polje)
+                elif len(self.zaznaj_nevarnost()) > 0:
+                    racunalnikovo_polje = random.choice(self.zaznaj_nevarnost())
+                    self.zasedena_polja.append(racunalnikovo_polje)
+                    self.prazna_polja.remove(racunalnikovo_polje)
+                    self.racunalnikova_polja.append(racunalnikovo_polje)
+                else:
+                    racunalnikovo_polje = random.choice(self.prazna_polja())
+                    self.zasedena_polja.append(racunalnikovo_polje)
+                    self.prazna_polja.remove(racunalnikovo_polje)
+                    self.racunalnikova_polja.append(racunalnikovo_polje)
 
 
     
