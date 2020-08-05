@@ -1,5 +1,5 @@
 
-PONOVLJENO_POLJE = 'o'
+NEVELJAVNO_POLJE = 'o'
 import random
 
 class Igra:
@@ -176,8 +176,8 @@ class Igra:
         return not self.ali_je_zmagal_igralec() and not self.ali_je_zmagal_racunalnik and len(self.zasedena_polja) == 9
       
     def izberi_polje(self, polje):
-        if polje in self.zasedena_polja:
-            return PONOVLJENO_POLJE
+        if polje not in self.prazna_polja:
+            return NEVELJAVNO_POLJE
         self.zasedena_polja.append(polje)
         self.prazna_polja.remove(polje)
         self.igralceva_polja.append(polje)
@@ -200,4 +200,6 @@ class Igra:
                     self.racunalnikova_polja.append(racunalnikovo_polje)
 
 
+
+def nova_igra():
     
