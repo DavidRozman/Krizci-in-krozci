@@ -17,7 +17,6 @@ def zahtevaj_vnos_polja():
 def pozeni_vmesnik():
     trenutna_igra = model.nova_igra()
     while True:
-        print(izpis_igre(trenutna_igra))
         polje = zahtevaj_vnos_polja()
         trenutna_igra.izberi_polje(polje)
         if trenutna_igra.ali_je_zmagal_racunalnik():

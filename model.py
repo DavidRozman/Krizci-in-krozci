@@ -1,5 +1,7 @@
 
 NEVELJAVNO_POLJE = 'o'
+ZMAGA = 'W'
+PORAZ = 'X'
 import random
 
 class Igra:
@@ -198,8 +200,12 @@ class Igra:
                     self.zasedena_polja.append(racunalnikovo_polje)
                     self.prazna_polja.remove(racunalnikovo_polje)
                     self.racunalnikova_polja.append(racunalnikovo_polje)
+        if self.ali_je_zmagal_igralec():
+            return ZMAGA
+        elif self.ali_je_zmagal_racunalnik():
+            return PORAZ
 
 
 
 def nova_igra():
-    
+    return Igra()
