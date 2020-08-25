@@ -15,26 +15,6 @@
         <button type="submit">Izberi polje</button>
     </form>
 
-      <body>
-  <div class="text-center"id="box">
-    <header>
-      <h1>Play Tic Tac Toe</h1>
-    </header>
-  <div id="message"></div>
-    <ul id="gameBoard">
-      <li class="tic"id="0">#</li>
-      <li class="tic"id="1">#</li>
-      <li class="tic"id="2">#</li>
-      <li class="tic"id="3">#</li>
-      <li class="tic"id="4">#</li>
-      <li class="tic"id="5">#</li>
-      <li class="tic"id="6">#</li>
-      <li class="tic"id="7">#</li>
-      <li class="tic"id="8">#</li>
-    </ul>
-    <div class="clearfix"></div>
-  </div>
-  </body>
     % end
 
   <form action="/igra/" method="post">

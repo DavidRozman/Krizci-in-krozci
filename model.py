@@ -2,6 +2,7 @@
 NEVELJAVNO_POLJE = 'o'
 ZMAGA = 'W'
 PORAZ = 'X'
+ZACETEK = 'Z'
 import random
 
 class Igra:
@@ -209,3 +210,47 @@ class Igra:
 
 def nova_igra():
     return Igra()
+
+class KrizciKrozci:
+    def __init__(self,):
+        self.igre = {}
+
+    def prosti_id_igre(self):
+        if len(self.igre) == 0:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
+    
+    def nova_igra(self):
+        self.preberi_iz_datoteke()
+        nov_id = self.prosti_id_igre()
+        sveza_igra = nova_igra()
+        self.igre[nov_id] = (sveza_igra, ZACETEK)
+        self.shrani_v_datoteko()
+        return nov_id
+    
+    def izberi_polje(self, id_igre, polje):
+        self.preberi_iz_datoteke()
+        trenutna_igra, _ = self.igre[id_igre]
+        novo_stanje = trenutna_igra.izberi_polje(polje)
+        self.igre[id_igre] = (trenutna_igra, novo_stanje)
+        self.shrani_v_datoteko()
+
+    def shrani_v_datoteko(self):
+
+        igre = {}
+        for id_igre, (igra, stanje) in self.igre.items():
+            igre[id_igre] = ((igra.igralceva_polja, igra.racunalnikova_polja), stanje)
+        
+        with open('Krizci-in-krozci/stanje.json', 'w') as out_file:
+            json.dump(igre, out_file)
+
+    def preberi_iz_datoteke(self):
+        with open('Krizci-in-krozci/stanje.json', 'r') as in_file:
+            igre = json.load(in_file)
+
+        self.igre = {}
+
+        for id_igre , ((igralceva_polja, racunalnikova_polja), stanje) in igre.items():
+            (igralceva_polja, racunalnikova_polja), stanje = igre[id_igre]
+            self.igre[int(id_igre)] = Igra(igralceva_polja, racunalnikova_polja), stanje
