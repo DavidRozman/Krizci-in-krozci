@@ -4,6 +4,7 @@ ZMAGA = 'W'
 PORAZ = 'X'
 ZACETEK = 'Z'
 import random
+import json
 
 class Igra:
 
@@ -230,11 +231,16 @@ class KrizciKrozci:
         return nov_id
     
     def izberi_polje(self, id_igre, polje):
-        self.preberi_iz_datoteke()
-        trenutna_igra, _ = self.igre[id_igre]
+        trenutna_igra, _ = self.dobi_trenutno_igro(id_igre)
         novo_stanje = trenutna_igra.izberi_polje(polje)
         self.igre[id_igre] = (trenutna_igra, novo_stanje)
         self.shrani_v_datoteko()
+
+
+    
+    def dobi_trenutno_igro(self, id_igre):
+        self.preberi_iz_datoteke()
+        return self.igre[id_igre]
 
     def shrani_v_datoteko(self):
 
@@ -242,12 +248,16 @@ class KrizciKrozci:
         for id_igre, (igra, stanje) in self.igre.items():
             igre[id_igre] = ((igra.igralceva_polja, igra.racunalnikova_polja), stanje)
         
-        with open('Krizci-in-krozci/stanje.json', 'w') as out_file:
+        with open('stanje.json', 'w') as out_file:
             json.dump(igre, out_file)
 
     def preberi_iz_datoteke(self):
-        with open('Krizci-in-krozci/stanje.json', 'r') as in_file:
-            igre = json.load(in_file)
+        try: 
+            with open('stanje.json', 'r') as in_file:
+                igre = json.load(in_file)
+        except json.JSONDecodeError:
+            igre = {}
+
 
         self.igre = {}
 

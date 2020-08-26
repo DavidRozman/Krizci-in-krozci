@@ -10,7 +10,8 @@ krizcikrozci.preberi_iz_datoteke()
 
 @bottle.get('/')
 def index():
-    return bottle.template('./Krizci-in-krozci/izgled.tpl')
+    # dokončaj
+    return bottle.template('izgled.tpl')
 
 
 @bottle.post('/nova_igra/')
@@ -31,7 +32,7 @@ def pokazi_igro():
     id_igre = int(bottle.request.get_cookie(ID_IGRE_COOKIE_NAME, secret=COOKIE_SECRET))
     igra, poskus = krizcikrozci.igre[id_igre]
 
-    return bottle.template('./Krizci-in-krozci/izgled.tpl', igra=igra, poskus=poskus, id_igre=id_igre)
+    return bottle.template('izgled.tpl', igra=igra, poskus=poskus, id_igre=id_igre)
 
 
 
