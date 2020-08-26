@@ -1,6 +1,6 @@
 
 %sirina_polja = 3
-%visina_polja = 2
+%visina_polja = 3
 %poskus = 'abcd'
 
 % import model
@@ -24,7 +24,7 @@
        <tr>
         % for st1 in range(sirina_polja):
             <td>
-              {{(st, st1)}}
+              {{'X/O'}}
             </td>
         % end
         </tr>
