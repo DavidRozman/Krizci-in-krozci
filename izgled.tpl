@@ -13,19 +13,17 @@
     % elif poskus == 'X':
     <h1> IZGUBIL SI </h1>
     % else:
-
-      <form action="/igra/" method="post">
-          Črka: <input type='text' name ='polje'>
-          <button type="submit">Izberi polje</button>
-      </form>
-
       <table>
+      %polje = 1
       % for st in range(visina_polja):
        <tr>
         % for st1 in range(sirina_polja):
             <td>
-              {{'X/O'}}
+              <form action="/igra/"> 
+                <button type = "submit" input type="hidden" name=polje>{{polje}}</button>
+              </form>
             </td>
+            %polje += 1
         % end
         </tr>
       % end
