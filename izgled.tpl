@@ -8,12 +8,12 @@
     <h1> Križci in Krožci </h1>
 
 
-    % if model.Igra.self.ali_je_zmagal_igralec():
+    % if model.ali_je_zmagal_igralec():
     <h1> ZMAGAL SI! </h1>
-    % elif model.Igra.self.ali_je_zmagal_racunalnik():
+    % elif model.ali_je_zmagal_racunalnik():
     <h1> IZGUBIL SI </h1>
     % else:
-      %while not model.Igra.self.ali_je_zmagal_igralec() and not model.Igra.self.ali_je_zmagal_racunalnik():
+      %while not model.ali_je_zmagal_igralec() and not model.ali_je_zmagal_racunalnik():
         <table>
         %polje = 1
         % for st in range(visina_polja):
