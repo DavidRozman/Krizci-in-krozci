@@ -185,6 +185,7 @@ class Igra:
         self.zasedena_polja.append(polje)
         self.prazna_polja.remove(polje)
         self.igralceva_polja.append(polje)
+        self.na_vrsti_igralec = False
         if not self.ali_je_zmagal_igralec():
             if len(self.zasedena_polja) != 9:
                 if len(self.zaznaj_zmago()) > 0:
@@ -202,6 +203,7 @@ class Igra:
                     self.zasedena_polja.append(racunalnikovo_polje)
                     self.prazna_polja.remove(racunalnikovo_polje)
                     self.racunalnikova_polja.append(racunalnikovo_polje)
+        self.na_vrsti_igralec = True
         if self.ali_je_zmagal_igralec():
             return ZMAGA
         elif self.ali_je_zmagal_racunalnik():

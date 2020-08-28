@@ -10,7 +10,6 @@ krizcikrozci.preberi_iz_datoteke()
 
 @bottle.get('/')
 def index():
-    # dokončaj
     return bottle.template('izgled.tpl')
 
 
