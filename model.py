@@ -27,11 +27,55 @@ class Plosca:
             print()
     def vnos(self, x, y, igralec):
         # preveri ali je polje prosto
-        # preveri ali polje obstaja 
         self.polja[y][x] = igralec
-        if self.polja[0][0] == 1:
+        if self.polja[0][0] == 1 and self.polja[0][1] == 1 and self.polja[0][2] == 1:
             self.konec = True
             self.zmagovalec = self.igralec1
+        elif self.polja[0][0] == 2 and self.polja[0][1] == 2 and self.polja[0][2] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[1][0] == 1 and self.polja[1][1] == 1 and self.polja[1][2] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[1][0] == 2 and self.polja[1][1] == 2 and self.polja[1][2] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[2][0] == 1 and self.polja[2][1] == 1 and self.polja[2][2] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[2][0] == 2 and self.polja[2][1] == 2 and self.polja[2][2] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[0][0] == 1 and self.polja[1][0] == 1 and self.polja[2][0] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[0][0] == 2 and self.polja[1][0] == 2 and self.polja[2][0] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[0][1] == 1 and self.polja[1][1] == 1 and self.polja[2][1] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[0][1] == 2 and self.polja[1][1] == 2 and self.polja[2][1] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[0][2] == 1 and self.polja[1][2] == 1 and self.polja[2][2] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[0][2] == 2 and self.polja[1][2] == 2 and self.polja[2][2] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[0][0] == 1 and self.polja[1][1] == 1 and self.polja[2][2] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[0][0] == 2 and self.polja[1][1] == 2 and self.polja[2][2] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
+        elif self.polja[0][2] == 1 and self.polja[1][1] == 1 and self.polja[2][0] == 1:
+            self.konec = True
+            self.zmagovalec = self.igralec1
+        elif self.polja[0][2] == 2 and self.polja[1][1] == 2 and self.polja[2][0] == 2:
+            self.konec = True
+            self.zmagovalec = self.igralec2
     
 
 
