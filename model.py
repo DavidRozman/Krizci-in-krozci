@@ -26,7 +26,8 @@ class Plosca:
                 print(stolpec, end= ' ')
             print()
     def vnos(self, x, y, igralec):
-        # preveri ali je polje prosto
+        if self.polja[y][x] != 0:
+            return None
         self.polja[y][x] = igralec
         if self.polja[0][0] == 1 and self.polja[0][1] == 1 and self.polja[0][2] == 1:
             self.konec = True
