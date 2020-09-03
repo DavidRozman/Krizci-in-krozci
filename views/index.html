@@ -1,0 +1,32 @@
+<html>
+   <head></head>
+   <body>
+
+      <h1>Križci in krožci</h1>
+
+      <form  method="post" action="/zacetek">
+
+         <label>Ime prvega igralca </label> 	
+         <input type="text" name="igralec1">
+
+         <label>Ime drugega igralca </label>
+         <input type="text" name="igralec2">
+
+         <button>Nova igra</button>
+      </form>
+
+    <ol>
+        %for igralec in igralci:
+        <li>{{igralec.ime}} - {{igralec.tocke}}</li>
+        %end
+    </ol>
+
+     <ol>
+        %for plosca in igre:
+        <li>Igralec1{{plosca.igralec1}} - Igralec2{{plosca.igralec2}} - Konec{{plosca.konec}} - Zmagovalec{{plosca.zmagovalec}}</li>
+        %end
+    </ol>
+      
+
+   </body>
+</html>
